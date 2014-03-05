@@ -16,6 +16,10 @@ class LinksController < ApplicationController
   def public_create
     @link = Link.new(link_params)
 
+    unless @link.target_url.starts_with?('http')
+      @link.target_url = "http://#{@link.target_url}"
+    end
+
     respond_to do |format|
       if @link.save
         format.html { redirect_to public_show_url(@link.short_name),

@@ -1,9 +1,6 @@
 <%= form_for(@link, role: 'form', url: {action: :public_create}) do |f| %>
   <% if @link.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
-
-      <ul>
+    <div class="errors">
       <% @link.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
