@@ -11,7 +11,6 @@
  *= require_self
  *= require_tree .
  */
-body { padding-top: 20px; }
 .content {
   text-align: center;
   min-height: 40px;
@@ -19,3 +18,6 @@ body { padding-top: 20px; }
   font-size: 1.2em;
 }
 div.errors { background: #FFCCCC; }
+.shortlink { background: #cccccc;
+             padding: 2px;
+             border-radius: 5px; }
