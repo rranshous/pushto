@@ -13,6 +13,7 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "livepreview-demo", :media => "all" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
@@ -35,6 +36,7 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "jquery-live-preview.js" %>
   </head>
   <body>
 
@@ -55,5 +57,10 @@
 
     </div> <!-- /container -->
 
+  <script>
+    $(document).ready(function() { 
+      $(".livepreview").livePreview({ position: 'left' });
+    });
+  </script>
   </body>
 </html>
