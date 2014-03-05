@@ -21,6 +21,10 @@ class LinksController < ApplicationController
       @link.target_url = "http://#{@link.target_url}"
     end
 
+    if @link.short_name == ''
+      @link.short_name = SecureRandom.base64(20).delete('/+=')[0, 10]
+    end
+
     respond_to do |format|
       if @link.save
         format.html { redirect_to public_show_url(@link.short_name),
