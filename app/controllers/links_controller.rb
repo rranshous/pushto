@@ -1,6 +1,7 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy,
                                   :public_show, :redirect]
+  before_filter :authenticate_user!, except: [:redirect, :public_new, :public_show]
 
   def redirect
     redirect_to @link.target_url

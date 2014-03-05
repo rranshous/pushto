@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
+gem 'devise'
 gem "twitter-bootstrap-rails"
 gem 'jquery-turbolinks'
 gem "validate_url"

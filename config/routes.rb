@@ -1,4 +1,5 @@
 Pushto::Application.routes.draw do
+  devise_for :users
   root "links#public_new"
   post "create", to: "links#public_create", as: :public_create
   get "r/:short_name", to: "links#redirect", as: :redirect
