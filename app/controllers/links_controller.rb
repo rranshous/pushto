@@ -1,6 +1,22 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 
+  def public_new
+    @link = Link.new
+  end
+
+  def public_create
+    @link = Link.new(link_params)
+
+    respond_to do |format|
+      if @link.save
+        format.html { render notice: 'Link was successfully created.' }
+      else
+        format.html { render action: 'public_new' }
+      end
+    end
+  end
+
   # GET /links
   # GET /links.json
   def index
