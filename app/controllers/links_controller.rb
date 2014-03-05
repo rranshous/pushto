@@ -1,8 +1,11 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_link, only: [:show, :edit, :update, :destroy, :public_show]
 
   def public_new
     @link = Link.new
+  end
+
+  def public_show
   end
 
   def public_create
@@ -10,7 +13,8 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { render notice: 'Link was successfully created.' }
+        format.html { redirect_to public_show_url(@link.short_name),
+                                  notice: 'Link was successfully created.' }
       else
         format.html { render action: 'public_new' }
       end
@@ -80,7 +84,11 @@ class LinksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
-      @link = Link.find(params[:id])
+      if params[:short_name]
+        @link = Link.where(short_name: params[:short_name]).first
+      else
+        @link = Link.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

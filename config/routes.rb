@@ -2,6 +2,7 @@ Pushto::Application.routes.draw do
   root "links#public_new"
   post "create", to: "links#public_create", as: :public_create
   get "r/:short_name", to: "links#redirect", as: :redirect
+  get "s/:short_name", to: "links#public_show", as: :public_show
   resources :links
 
   # The priority is based upon order of creation: first created -> highest priority.
