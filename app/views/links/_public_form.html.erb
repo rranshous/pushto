@@ -1,4 +1,4 @@
-<%= form_for(@link, url: {action: :public_create}) do |f| %>
+<%= form_for(@link, role: 'form', url: {action: :public_create}) do |f| %>
   <% if @link.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
@@ -11,13 +11,15 @@
     </div>
   <% end %>
 
-  Link from pushto.com/<br/>
-  <%= f.text_field :short_name %><br/>
-  to<br/>
-  <%= f.text_field :target_url %>
-  <br/>
+  <div class="form-group">
+    <%= f.label :short_name %>
+    <%= f.text_field :short_name, class: 'form-control', placeholder: 'name' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :target_url %>
+    <%= f.text_field :target_url, class: 'form-control', placeholder: 'URL' %>
+  </div>
   <%= content_tag :button, type: :submit, class: 'btn btn-primary btn-lg' do %>
     Submit
   <% end %>
-  <hr/>
 <% end %>

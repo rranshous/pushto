@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 gem "twitter-bootstrap-rails"
+gem 'jquery-turbolinks'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
