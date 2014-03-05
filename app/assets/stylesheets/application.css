@@ -12,3 +12,9 @@
  *= require_tree .
  */
 body { padding-top: 20px; }
+.content {
+  text-align: center;
+  min-height: 40px;
+  padding-top: 15px;
+  font-size: 1.2em;
+}
