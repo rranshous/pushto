@@ -1,5 +1,10 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show, :edit, :update, :destroy, :public_show]
+  before_action :set_link, only: [:show, :edit, :update, :destroy,
+                                  :public_show, :redirect]
+
+  def redirect
+    redirect_to @link.target_url
+  end
 
   def public_new
     @link = Link.new

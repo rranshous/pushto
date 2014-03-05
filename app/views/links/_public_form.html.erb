@@ -11,7 +11,13 @@
     </div>
   <% end %>
 
-  Link from pushto.com/<%= f.text_field :short_name %>
-  to <%= f.text_field :target_url %>
-  <%= f.submit 'Create' %>
+  Link from pushto.com/<br/>
+  <%= f.text_field :short_name %><br/>
+  to<br/>
+  <%= f.text_field :target_url %>
+  <br/>
+  <%= content_tag :button, type: :submit, class: 'btn btn-primary btn-lg' do %>
+    Submit
+  <% end %>
+  <hr/>
 <% end %>
